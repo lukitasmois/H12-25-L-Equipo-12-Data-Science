@@ -19,13 +19,7 @@ class FlightModel(BaseModel):
 
 @app.post('/predict')
 async def generar_prediccion(flight : FlightModel):
-    print('vuelo: ', flight)
-    predicion = predecir(flight)
-    print('prediccion: ', predicion)
-    # return {
-    #     "prevision": 'On Time (desde fastapi)',
-    #     "probabilidad": 0.99
-    # }
+    predicion = predecir(flight.model_dump())
 
     return predicion
 
@@ -34,16 +28,7 @@ def predecir(flight):
         input_path='../../data-science/notebook_prediccion.ipynb',
         output_path='analisis_ejecutado.ipynb',
         parameters={
-            'json_ticket': {
-                "airline": "AA",
-                "origin_airport": "DFW",
-                "destination_airport": "LAX",
-                "scheduled_departure": 900,
-                "distance": 1235,
-                "year": 2025,
-                "month": 11,
-                "day": 10
-                }
+            'json_ticket': flight
         }
     )
 
