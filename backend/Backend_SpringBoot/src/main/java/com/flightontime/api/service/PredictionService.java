@@ -28,7 +28,6 @@ public class PredictionService {
      * MODIFICACIÓN: Se cambió el orden de las clases para que coincida con el Controller.
      */
     public PredictionResponse getPrediction(FlightRequest request) {
-
         String endpoint = dsApiUrl;
 
         //configure header para que fastapi entienda el json

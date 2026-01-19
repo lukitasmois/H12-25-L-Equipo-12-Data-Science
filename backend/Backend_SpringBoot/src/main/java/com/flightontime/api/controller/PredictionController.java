@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
 
-@CrossOrigin(origins = "*") // Esto evitará errores de CORS cuando Claude trabaje en el Frontend
 @RestController
-@RequestMapping("/api/v1/flights") // <-- Agregamos esto para orden profesional
+@RequestMapping("/api/v1/flights")
+@CrossOrigin(origins = "http://localhost:8081")
 public class PredictionController {
 
     /*
